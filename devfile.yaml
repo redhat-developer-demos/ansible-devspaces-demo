@@ -64,20 +64,20 @@ commands:
         isDefault: true
       component: tooling-container
 
-  - id: molecule-destroy
+  - id: molecule-test
     exec:
-      label: "5.Molecule: reset the test pod back to a fresh instance"
-      commandLine: 'source $HOME/.bashrc && molecule destroy'
+      label: "5.Molecule: run the full molecule test"
+      commandLine: 'source $HOME/.bashrc && molecule test'
       workingDir: ${PROJECTS_ROOT}/ansible-devspaces-demo/collections/ansible_collections/sample_namespace/sample_collection/extensions
       group:
         kind: run
         isDefault: true
       component: tooling-container
 
-  - id: molecule-test
+  - id: molecule-destroy
     exec:
-      label: "6.Molecule: run the full molecule test"
-      commandLine: 'source $HOME/.bashrc && molecule test'
+      label: "6.Molecule: reset the test pod back to a fresh instance"
+      commandLine: 'source $HOME/.bashrc && molecule destroy'
       workingDir: ${PROJECTS_ROOT}/ansible-devspaces-demo/collections/ansible_collections/sample_namespace/sample_collection/extensions
       group:
         kind: run
