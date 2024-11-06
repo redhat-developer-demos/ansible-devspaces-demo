@@ -2,7 +2,6 @@ To get started, simply click the button below...
 
 [![Contribute](https://www.eclipse.org/che/contribute.svg)](https://workspaces.openshift.com/f?url=https://github.com/redhat-developer-demos/ansible-devspaces-demo)
 
-
 # Ansible Development on OpenShift Dev Spaces
 
 This repository provides a development environment for Ansible playbook creation, testing with Molecule, and ansible-lint checks using OpenShift Dev Spaces.
@@ -25,7 +24,7 @@ To get started with OpenShift Dev Spaces, refer to the [OpenShift Dev Spaces doc
 
 ## Base Image Of Devfile
 
-Ultimately we intend to use the [ansible creator image](https://github.com/ansible/creator-ee) as the base image, however there are currently some [technical blockers](https://github.com/eclipse/che/issues/21778) to doing that. The `Dockerfile` in this repo is that of the image we are currently pulling down for reference.
+[Community Ansible Dev Spaces Image](https://github.com/ansible/community-ansible-devspaces-image) is used as an image for Ansible development and it's defined in the `devfile.yaml`.
 
 ### GitHub OAuth2
 
@@ -69,4 +68,4 @@ To reset your test pod back to a fresh instance you can run `molecule destroy` a
 Contributions to this repository are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue with [Red Hat](https://issues.redhat.com/projects/CRW/issues).
 
 ## Code of Conduct
-We ask all of our community members and contributors to adhere to the [Ansible code of conduct](http://docs.ansible.com/ansible/latest/community/code_of_conduct.html). If you have questions or need assistance, please reach out to our community team at [codeofconduct@ansible.com](mailto:codeofconduct@ansible.com)   
+We ask all of our community members and contributors to adhere to the [Ansible code of conduct](http://docs.ansible.com/ansible/latest/community/code_of_conduct.html). If you have questions or need assistance, please reach out to our community team at [codeofconduct@ansible.com](mailto:codeofconduct@ansible.com)
