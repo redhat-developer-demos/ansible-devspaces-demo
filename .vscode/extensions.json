@@ -1,8 +1,11 @@
 {
     "recommendations": [
-        "ms-python.python",
-        "redhat.ansible",
-        "redhat.vscode-openshift-connector",
-        "ms-python.black-formatter"
+      "ms-python.python",
+      "gitlab.gitlab-workflow",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.vscode-jupyter-cell-tags",
+      "ms-toolsai.jupyter-keymap",
+      "ms-toolsai.jupyter-renderers",
+      "ms-toolsai.vscode-jupyter-slideshow",
     ]
 }
