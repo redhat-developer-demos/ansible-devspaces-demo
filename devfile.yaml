@@ -97,7 +97,5 @@ commands:
       component: tooling-container
 
 events:
-  postStart:
-    - "oc-install"
   preStop:
     - "molecule-destroy"
