@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tooling-container
     container:
-      image: quay.io/devspaces/ansible-creator-ee@sha256:c94db4c57a7e4431e7a43a2ac80d4b638f4f12e736d8ba9af739406218e5f57b
+      image: ghcr.io/ansible/ansible-devspaces@sha256:f5c1e954bada28348077bd1455e7e529aa01631860a2f42b971257d724da4c30 # v25.2.1
       memoryRequest: 256M
       memoryLimit: 6Gi
       cpuRequest: 250m
@@ -97,7 +97,5 @@ commands:
       component: tooling-container
 
 events:
-  postStart:
-    - "oc-install"
   preStop:
     - "molecule-destroy"
