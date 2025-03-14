@@ -24,7 +24,7 @@ To get started with OpenShift Dev Spaces, refer to the [OpenShift Dev Spaces doc
 
 ## Base Image Of Devfile
 
-[Community Ansible Dev Spaces Image](https://github.com/ansible/community-ansible-devspaces-image) is used as an image for Ansible development and it's defined in the `devfile.yaml`.
+[Ansible Workspace Environment Reference Image](https://github.com/ansible/ansible-dev-tools/tree/main/devspaces) is used as an image for Ansible development and it's defined in the `devfile.yaml`.
 
 ### GitHub OAuth2
 
