@@ -1,6 +1,6 @@
 To get started, simply click the button below...
 
-[![Contribute](https://www.eclipse.org/che/contribute.svg)](https://workspaces.openshift.com/f?url=https://github.com/redhat-developer-demos/ansible-devspaces-demo)
+[![Contribute](https://www.eclipse.org/che/contribute.svg)](https://workspaces.openshift.com/f?url=https://github.com/redhat-developer-demos/ansible-devspaces-demo/tree/sandbox-activity)
 
 # Ansible Development on OpenShift Dev Spaces
 
