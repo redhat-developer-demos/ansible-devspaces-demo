@@ -5,5 +5,5 @@
     - name: Ping the localhost.
       ansible.builtin.ping:
 
-    - name: Ping them again
+    - name: test precommit
       ansible.builtin.ping:
