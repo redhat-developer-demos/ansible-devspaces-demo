@@ -1,0 +1,6 @@
+---
+- name: test playbook
+  hosts: all
+  tasks: 
+    - name: Ping the localhost.
+      ansible.builtin.ping:

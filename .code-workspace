@@ -1,7 +1,8 @@
 {
 	"settings": {
 		"ansible.lightspeed.suggestions.enabled": true,
-		"ansible.lightspeed.enabled": true
+		"ansible.lightspeed.enabled": true,
+		"ansible.python.interpreterPath": "/bin/python3.11"
 	},
 	"folders": [
 		{
