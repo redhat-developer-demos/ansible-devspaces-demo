@@ -1,7 +1,7 @@
 # cspell: disable=devspaces
 schemaVersion: 2.2.2
 metadata:
-  name: ansible-demo
+  name: hammer-ansible-demo
 components:
   - name: tooling-container
     container:
