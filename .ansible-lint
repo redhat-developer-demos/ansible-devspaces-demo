@@ -12,5 +12,5 @@ exclude_paths:
   - collections/ansible_collections/sample_namespace/sample_collection/extensions
 
 warn_list:
-  - galaxy[no-changelog]  # TODO: Implement changelog.
-  - schema[meta-runtime]  # TODO: Implement meta/runtime.yml
+  - galaxy[no-changelog] # TODO: Implement changelog.
+  - schema[meta-runtime] # TODO: Implement meta/runtime.yml

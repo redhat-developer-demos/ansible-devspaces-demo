@@ -1,0 +1,6 @@
+---
+- name: Simple test case
+  hosts: all
+  connection: local
+  roles:
+    - sample_namespace.github_action_sample.ping

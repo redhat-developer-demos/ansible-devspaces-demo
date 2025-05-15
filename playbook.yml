@@ -1,0 +1,9 @@
+---
+- name: Test playbook
+  hosts: all
+  tasks:
+    - name: Ping the localhost.
+      ansible.builtin.ping:
+
+    - name: Test precommit
+      ansible.builtin.ping:

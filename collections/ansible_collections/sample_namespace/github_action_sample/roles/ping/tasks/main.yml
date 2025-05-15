@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: MIT-0
+---
+# tasks file for ping
+- name: Ping the hosts and test connectivity.
+  ansible.builtin.ping:
