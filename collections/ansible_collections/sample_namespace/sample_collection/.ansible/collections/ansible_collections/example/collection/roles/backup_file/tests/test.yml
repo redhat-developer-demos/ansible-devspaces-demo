@@ -1,0 +1,6 @@
+---
+- name: Simple test case
+  hosts: all
+  connection: local
+  roles:
+    - backup_file
