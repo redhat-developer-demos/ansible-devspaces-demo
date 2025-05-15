@@ -1,10 +1,30 @@
-on: push
+name: Molecule
+
+on:
+  push:
+    branches:
+      - main
+      - hammer-devspaces
+  pull_request:
+    branches:
+      - main
 
 jobs:
   molecule:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario:
+          - default
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          path: "ansible-devspaces-demo/collections/ansible_collections/sample_namespace/sample_collection/extensions/molecule.yml"
-      - uses: gofrolist/molecule-action@v2
+          path: "${{ github.repository }}"
+      - name: Molecule
+        uses: gofrolist/molecule-action@v2
+        with:
+          molecule_options: --debug --base-config molecule/_shared/base.yml
+          molecule_command: test
+          molecule_args: --scenario-name ${{ matrix.scenario }}
