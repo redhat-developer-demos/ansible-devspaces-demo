@@ -15,8 +15,7 @@ jobs:
     strategy:
       matrix:
         distro:
-          - rockylinux8
-          - debian10
+          - ubi9
 
     steps:
       - name: Check out the codebase.
