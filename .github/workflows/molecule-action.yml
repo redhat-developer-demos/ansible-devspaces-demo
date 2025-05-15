@@ -16,7 +16,6 @@ jobs:
       matrix:
         distro:
           - fedora42
-          -
 
     steps:
       - name: Check out the codebase.
