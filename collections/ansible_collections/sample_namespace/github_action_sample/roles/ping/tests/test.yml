@@ -3,4 +3,4 @@
   hosts: all
   connection: local
   roles:
-    - ping
+    - sample_namespace.github_action_sample.ping
