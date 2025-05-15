@@ -17,3 +17,4 @@ jobs:
         uses: ansible/ansible-lint@main # or version tag instead of 'main'
         with:
           working_directory: "collections/ansible_collections/sample_namespace/sample_collection"
+          args: "--exclude extensions/"
