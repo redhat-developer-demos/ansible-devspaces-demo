@@ -1,7 +1,6 @@
-# SPDX-License-Identifier: MIT-0
 ---
-- name: Test the ping role.
-  hosts: localhost
-  remote_user: root
+- name: Simple test case
+  hosts: all
+  connection: local
   roles:
     - ping
