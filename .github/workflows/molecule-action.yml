@@ -1,22 +1,39 @@
-name: CI Workflow
-
-on: [push]
+---
+name: Molecule CI
+'on':
+  pull_request:
+  push:
+    branches:
+      - main
+      - hammer-devspaces
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4 # Or your preferred version
-        run: |
-          echo "Current directory: $(pwd)"
-          echo "Listing contents of /github/workspace:"
-          ls -laR /github/workspace
 
-      - name: Run Molecule Tests
-        uses: gofrolist/molecule-action@v2
+  test:
+    name: Molecule
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - rockylinux8
+          - debian10
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
         with:
-          molecule_options: --debug --base-config molecule/_shared/base.yml
-          molecule_command: test
-          molecule_args: --scenario-name default
-          molecule_working_dir: collections/ansible_collections/sample_namespace/sample_collection/extensions # Adjust this after checking the ls output
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install ansible molecule molecule-plugins[docker] yamllint ansible-lint
+
+      - name: Run Molecule tests.
+        run: molecule test
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}
+        working-directory: molecule
