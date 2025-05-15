@@ -6,5 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          path: "${{ github.repository }}"
+          path: "ansible-devspaces-demo/collections/ansible_collections/sample_namespace/sample_collection/extensions/molecule.yml"
       - uses: gofrolist/molecule-action@v2
