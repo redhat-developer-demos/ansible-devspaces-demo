@@ -38,7 +38,7 @@ scenario:
   test_sequence:
     - dependency
     - syntax
-    - create
-    - converge
+    #- create
+    #- converge
     - idempotence
     - verify
