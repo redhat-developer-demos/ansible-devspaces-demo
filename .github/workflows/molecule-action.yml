@@ -1,31 +1,35 @@
-name: Molecule
+name: CI Workflow
 
-on:
-  push:
-    branches:
-      - main
-      - hammer-devspaces
-  pull_request:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  molecule:
+  test:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        scenario:
-          - default
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          path: "${{ github.repository }}"
-      - name: Molecule
+      - name: Check out repository
+        uses: actions/checkout@v4 # Or your preferred version
+
+      - name: Debug: List files in workspace root
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Listing contents of /github/workspace:"
+          ls -laR /github/workspace # List all files and directories recursively
+        # If your code is in a subdirectory after checkout, adjust the path above
+        # or add another listing step for the specific subdirectory.
+
+      - name: Debug: List files in expected parent of 'collections' (if not root)
+        # If you suspect 'collections' is not directly at the root of your repo,
+        # list the directory where you think it should be.
+        # For example, if it's in 'my_project_subdir/collections':
+        # run: |
+        #   echo "Listing contents of /github/workspace/my_project_subdir:"
+        #   ls -laR /github/workspace/my_project_subdir
+        continue-on-error: true # So the workflow continues even if this path is wrong
+
+      - name: Run Molecule Tests
         uses: gofrolist/molecule-action@v2
         with:
           molecule_options: --debug --base-config molecule/_shared/base.yml
           molecule_command: test
-          molecule_args: --scenario-name ${{ matrix.scenario }}
-          molecule_working_dir: collections/ansible_collections/sample_namespace/sample_collection/extensions
+          molecule_args: --scenario-name default
+          molecule_working_dir: collections/ansible_collections/sample_namespace/sample_collection/extensions # Adjust this after checking the ls output
