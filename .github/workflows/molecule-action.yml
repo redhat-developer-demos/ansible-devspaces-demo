@@ -4,7 +4,8 @@ name: Molecule CI
   pull_request:
   push:
     branches:
-      - master
+      - main
+      - hammer-devspaces
 
 jobs:
 
