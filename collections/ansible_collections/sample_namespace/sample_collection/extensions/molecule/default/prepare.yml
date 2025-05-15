@@ -5,7 +5,6 @@
   gather_facts: false
   no_log: "{{ molecule_no_log }}"
   tasks:
-
     - name: Store user ENVs
       ansible.builtin.set_fact:
         molecule_user_home_dir: "{{ lookup('ansible.builtin.env', 'HOME') }}"
@@ -15,12 +14,12 @@
       ansible.builtin.file:
         path: "{{ molecule_user_home_dir }}/bin"
         state: directory
-        mode: 0770
+        mode: "0770"
 
     - name: Add another bin dir to system-wide $PATH.
       ansible.builtin.lineinfile:
         path: "{{ molecule_user_home_dir }}/.bashrc"
-        line: 'PATH=$PATH:{{ molecule_user_home_dir }}/bin'
+        line: "PATH=$PATH:{{ molecule_user_home_dir }}/bin"
         state: present
 
     - name: Ensure python dependencies are installed
