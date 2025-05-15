@@ -15,7 +15,7 @@
       ansible.builtin.file:
         path: "{{ molecule_user_home_dir }}/bin"
         state: directory
-        mode: 0770
+        mode: "0770"
 
     - name: Add another bin dir to system-wide $PATH.
       ansible.builtin.lineinfile:
