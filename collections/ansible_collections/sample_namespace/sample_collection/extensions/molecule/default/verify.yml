@@ -4,7 +4,7 @@
 - name: Verify
   hosts: all
   gather_facts: false
-  connection: community.okd.oc
+  connection: local
   # vars:
   #   __backup_file_base: "{{ backup_file_source | basename }}"
   #   __backup_file_base_suffix: "{{ backup_file_base }}{{ backup_file_dest_suffix }}"
