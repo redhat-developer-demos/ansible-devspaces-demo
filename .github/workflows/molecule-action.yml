@@ -11,7 +11,12 @@ jobs:
 
   test:
     name: Molecule
-    runs-on: registry.access.redhat.com/ubi9/ubi
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - fedora42
+          -
 
     steps:
       - name: Check out the codebase.
