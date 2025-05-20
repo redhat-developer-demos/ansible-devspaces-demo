@@ -1,6 +1,6 @@
 ---
 name: Molecule CI
-"on":
+on:
   pull_request:
     branches: 
       - dev
