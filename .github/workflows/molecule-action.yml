@@ -2,6 +2,9 @@
 name: Molecule CI
 "on":
   pull_request:
+    branches: 
+      - dev
+      - prod
   push:
     branches:
       - dev

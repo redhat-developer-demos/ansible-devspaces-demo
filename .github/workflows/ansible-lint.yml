@@ -7,6 +7,11 @@ on:
     branches:
       - dev # Replace with your default branch if different
       - prod
+  pull_request:
+    branches: 
+      - dev
+      - prod
+
 jobs:
   build:
     name: Ansible Lint # Naming the build is important to use it as a status check
