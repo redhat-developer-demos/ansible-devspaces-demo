@@ -1,7 +1,7 @@
 ---
 - name: Test playbook
   hosts: all
+  gather_facts: false
   tasks:
     - name: Ping the localhost.
       ansible.builtin.ping:
-
