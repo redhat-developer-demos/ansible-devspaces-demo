@@ -1,11 +1,14 @@
 ---
 name: Molecule CI
-"on":
+on:
   pull_request:
+    branches: 
+      - dev
+      - prod
   push:
     branches:
-      - main
-      - hammer-devspaces
+      - dev
+      - prod
 
 jobs:
 

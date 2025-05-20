@@ -10,6 +10,8 @@ exclude_paths:
   - syntax_highlighting_demo.yml
   - collections/ansible_collections/sample_namespace/sample_collection/roles/backup_file/molecule
   - collections/ansible_collections/sample_namespace/sample_collection/extensions
+  - collections/ansible_collections/sample_namespace/github_action_sample/roles
+  - collections/ansible_collections/sample_namespace/github_action_sample/extensions
 
 warn_list:
   - galaxy[no-changelog] # TODO: Implement changelog.
