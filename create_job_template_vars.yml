@@ -1,0 +1,11 @@
+---
+controller_templates:
+- name: webhooks
+  job_type: run
+  inventory: Demo Inventory
+  project: test_webhooks
+  playbook: create_job_template.yml
+  webhook_service: github
+  webhook_credential: "{{ github_token }}"
+  credentials:
+  - Demo Credential
