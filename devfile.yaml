@@ -15,6 +15,8 @@ components:
       env:
         - name: "ANSIBLE_COLLECTIONS_PATH"
           value: "~/.ansible/collections:/usr/share/ansible/collections:/projects/ansible-devspaces-demo/collections"
+        - name: "KUBEDOCK_ENABLED"
+          value: "true"
 commands:
   - id: molecule-create
     exec:
