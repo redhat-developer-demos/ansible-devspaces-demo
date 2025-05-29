@@ -1,0 +1,5 @@
+[general]
+host=https://aap-devspaces-25-aap.apps.devspaces-sno.arsalan.io
+username= chrhamme
+password= redhat123
+verify_ssl=false

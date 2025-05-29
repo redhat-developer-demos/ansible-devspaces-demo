@@ -1,7 +1,56 @@
 ---
-- name: Test playbook
-  hosts: all
+- name: Configure 
+  hosts: localhost
   gather_facts: false
   tasks:
-    - name: Ping the localhost.
-      ansible.builtin.ping:
+    - name: Configure SCM project from git to populate playbooks for job templates. 
+      ansible.controller.project:
+        name: "Hammer - Demo"
+        organization: "Default"
+        scm_url: https://github.com/aoyawale/ansible-devspaces-demo/
+        scm_type: git
+        credential: "aoyawale github"
+        update_project: true
+        controller_config_file: files/controller_auth
+
+    - name: Add Home Lab inventory to group hosts in later for job execution. 
+      ansible.controller.inventory:
+        name: "Home Lab"
+        organization: Default
+        state: present
+        controller_config_file: files/controller_auth
+
+    - name: Create and add hosts into Home Lab inventory. 
+      ansible.controller.host:
+        name: "{{ item }}"
+        inventory: "Home Lab"
+        enabled: true
+        controller_config_file: files/controller_auth 
+      loop:
+        - hammer-bastion.arsalan.io
+
+    - name: Create Machine credentials for job_template execution. 
+      ansible.controller.credential:
+        name: chammer-creds
+        organization: Default
+        state: present
+        credential_type: Machine
+        inputs:
+          username: chammer
+          password: 'redhat123'
+          #ssh_key_data: "{{ lookup('file', 'files/ssh-key') }}"
+        controller_config_file: files/controller_auth
+
+    - name: Create the ping hosts job template to run against the aap cluster. 
+      ansible.controller.job_template:
+        name: "Ping Hosts - Demo"
+        job_type: run
+        organization: "Default"
+        inventory: "Home Lab"
+        project: "Hammer - Demo"
+        playbook: "playbook.yml"
+        forks: 5
+        become_enabled: true
+        credentials: 
+          - "chammer-creds"
+        controller_config_file: files/controller_auth

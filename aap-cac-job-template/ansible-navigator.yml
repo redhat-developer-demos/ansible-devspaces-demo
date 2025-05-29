@@ -2,7 +2,7 @@
 ansible-navigator:
   execution-environment:
     container-engine: podman
-    enabled: False
+    enabled: True
     image: registry.redhat.io/ansible-automation-platform-25/ee-supported-rhel9@sha256:d2e2a3968c841a83f328011102cbbfd6c042c4dde07c3bbe2d30c30336afa760
     pull:
       arguments:

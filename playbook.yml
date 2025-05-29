@@ -1,0 +1,7 @@
+---
+- name: Test ping playbook to run for Ansible Dev Spaces demo. 
+  hosts: all
+  gather_facts: false
+  tasks: 
+    - name: Ping.
+      ansible.builtin.ping:
