@@ -5,7 +5,7 @@ metadata:
 components:
   - name: tooling-container
     container:
-      image: ghcr.io/ansible/ansible-devspaces@sha256:73c1b4c4844334c7b059e143a4b5481b2161afa39494660d50b8dfbe7a49f954
+      image: ghcr.io/ansible/ansible-devspaces@sha256:ce1ecc3b3c350eab2a9a417ce14a33f4b222a6aafd663b5cf997ccc8c601fe2c
       memoryRequest: 256M
       memoryLimit: 6Gi
       cpuRequest: 250m
@@ -14,6 +14,8 @@ components:
       env:
         - name: 'ANSIBLE_COLLECTIONS_PATH'
           value: '~/.ansible/collections:/usr/share/ansible/collections:/projects/ansible-devspaces-demo/collections'
+        - name: 'KUBEDOCK_ENABLED'
+          value: "true"
 commands:
 
   - id: molecule-create
