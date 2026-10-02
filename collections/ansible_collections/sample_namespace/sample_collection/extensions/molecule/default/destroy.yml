@@ -13,6 +13,13 @@
         state: absent
         definition: "{{ lookup('template', 'templates/deployment.yml') | from_yaml }}"
         wait: true
+      environment:
+        http_proxy: ""
+        https_proxy: ""
+        HTTP_PROXY: ""
+        HTTPS_PROXY: ""
+        NO_PROXY: "*"
+        no_proxy: "*"
       register: server
       with_items: "{{ molecule_yml.platforms }}"
 
